@@ -10,6 +10,8 @@ public class DogDTO {
 
     private String name;
 
+    private String description;
+
     private String origin;
 
     private String personality;

@@ -16,7 +16,7 @@ public class Dog {
 
     @Id
     @NotNull
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -27,46 +27,51 @@ public class Dog {
 
     @NotNull
     @NotEmpty
-    @Column(name = "origin")
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
+
+    @NotNull
+    @NotEmpty
+    @Column(name = "origin", columnDefinition = "TEXT")
     private String origin;
 
     @NotNull
     @NotEmpty
-    @Column(name = "personality")
+    @Column(name = "personality", columnDefinition = "TEXT")
     private String personality;
 
     @NotNull
     @NotEmpty
-    @Column(name = "behaviour")
+    @Column(name = "behaviour", columnDefinition = "TEXT")
     private String behaviour;
 
     @NotNull
     @NotEmpty
-    @Column(name = "health")
+    @Column(name = "health", columnDefinition = "TEXT")
     private String health;
 
     @NotNull
     @NotEmpty
-    @Column(name = "physical_activity")
+    @Column(name = "physical_activity", columnDefinition = "TEXT")
     private String physicalActivity;
 
     @NotNull
     @NotEmpty
-    @Column(name = "food")
+    @Column(name = "food", columnDefinition = "TEXT")
     private String food;
 
     @NotNull
     @NotEmpty
-    @Column(name = "care")
+    @Column(name = "care", columnDefinition = "TEXT")
     private String care;
 
     @NotNull
     @NotEmpty
-    @Column(name = "best_for_kids")
+    @Column(name = "best_for_kids", columnDefinition = "TEXT")
     private String bestForKids;
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "test_id")
+    @JoinColumn(name = "test_id", columnDefinition = "TEXT")
     private DogTest test;
 }
