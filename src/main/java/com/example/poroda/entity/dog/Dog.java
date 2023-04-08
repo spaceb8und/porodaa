@@ -72,6 +72,6 @@ public class Dog {
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "test_id", columnDefinition = "TEXT")
+    @JoinColumn(name = "test_id")
     private DogTest test;
 }

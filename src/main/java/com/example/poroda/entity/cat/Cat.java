@@ -72,6 +72,6 @@ public class Cat {
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "test_id", columnDefinition = "TEXT")
+    @JoinColumn(name = "test_id")
     private CatTest test;
 }
