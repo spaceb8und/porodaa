@@ -10,6 +10,8 @@ public class CatDTO {
 
     private String name;
 
+    private String picture;
+
     private String description;
 
     private String origin;

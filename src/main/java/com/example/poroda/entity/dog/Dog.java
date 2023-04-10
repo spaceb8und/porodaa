@@ -27,6 +27,11 @@ public class Dog {
 
     @NotNull
     @NotEmpty
+    @Column(name = "picture", columnDefinition = "TEXT")
+    private String picture;
+
+    @NotNull
+    @NotEmpty
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 

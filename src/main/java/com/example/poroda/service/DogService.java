@@ -26,7 +26,9 @@ public class DogService {
         this.dogTestRepository = dogTestRepository;
     }
 
-
+    public List<DogDTO> getAll() {
+        return allDogToDTO(dogRepository.findAll());
+    }
 
     private Dog toDogEntity(DogDTO audioDTO) {
         return DogMapper.DOG_MAPPER.toEntity(audioDTO);
