@@ -14,6 +14,7 @@ import com.example.poroda.repo.DogTestRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class DogService {
@@ -27,7 +28,18 @@ public class DogService {
     }
 
     public List<DogDTO> getAll() {
-        return allDogToDTO(dogRepository.findAll());
+        List<Dog> dogs = dogRepository.findAll();
+        List<DogDTO> dtos = allDogToDTO(dogs);
+
+        dtos.forEach(item->{
+            dogs.forEach(dog -> {
+                if(Objects.equals(dog.getId(), item.getId())){
+                    item.setDescription(dog.getDescription());
+                    item.setPicture(dog.getPicture());
+                }
+            });
+        });
+        return dtos;
     }
 
     private Dog toDogEntity(DogDTO audioDTO) {

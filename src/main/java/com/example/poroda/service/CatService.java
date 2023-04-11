@@ -11,6 +11,7 @@ import com.example.poroda.repo.CatTestRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class CatService {
@@ -24,7 +25,18 @@ public class CatService {
     }
 
     public List<CatDTO> getAll() {
-        return allCatToDTO(catRepository.findAll());
+        List<Cat> cats = catRepository.findAll();
+        List<CatDTO> dtos = allCatToDTO(cats);
+
+        dtos.forEach(item->{
+            cats.forEach(cat -> {
+                if(Objects.equals(cat.getId(), item.getId())){
+                    item.setDescription(cat.getDescription());
+                    item.setPicture(cat.getPicture());
+                }
+            });
+        });
+        return dtos;
     }
 
     private Cat toCatEntity(CatDTO audioDTO) {
